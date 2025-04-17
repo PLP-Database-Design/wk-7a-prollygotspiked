@@ -8,7 +8,7 @@
 -- 102     | Jane Smith   | Tablet, Keyboard, Mouse
 -- 103     | Emily Clark  | Phone
 
--- ✅ Transform into 1NF: Each product in a separate row
+-- Transform into 1NF: Each product in a separate row
 
 -- Create the normalized ProductDetail_1NF table
 DROP TABLE IF EXISTS ProductDetail_1NF;
@@ -35,7 +35,7 @@ VALUES
 -- Original Table (1NF, but violates 2NF due to partial dependency)
 -- OrderID | CustomerName | Product | Quantity
 
--- ✅ Step 1: Create Orders table to store OrderID and CustomerName (removing partial dependency)
+-- Step 1: Create Orders table to store OrderID and CustomerName (removing partial dependency)
 CREATE TABLE Orders (
     OrderID INT PRIMARY KEY,
     CustomerName VARCHAR(100)
@@ -48,7 +48,7 @@ VALUES
     (102, 'Jane Smith'),
     (103, 'Emily Clark');
 
--- ✅ Step 2: Create OrderDetails table with full dependency on (OrderID, Product)
+-- Step 2: Create OrderDetails table with full dependency on (OrderID, Product)
 CREATE TABLE OrderDetails_2NF (
     OrderID INT,
     Product VARCHAR(100),
